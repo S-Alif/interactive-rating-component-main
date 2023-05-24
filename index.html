@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+</head>
+<body>
+
+  <!-- Rating state start -->
+  <section class="rating-state state open" id="rating-state">
+    <div class="rating-content box">
+      
+      <!-- star-icon -->
+      <div class="star-icon">
+        <img src="images/icon-star.svg" alt="star icon">
+      </div>
+
+      <!-- title -->
+      <h1 class="title">How did we do?</h1>
+
+      <!-- details -->
+      <p class="details">Please let us know how we did with your support request. All feedback is appreciated
+      to help us improve our offering!</p>
+
+      <!-- rating -->
+      <ul class="rating">
+        <li class="btn-box"><button class="rating-btn" type="button" value="1">1</button></li>
+        <li class="btn-box"><button class="rating-btn" type="button" value="2">2</button></li>
+        <li class="btn-box"><button class="rating-btn" type="button" value="3">3</button></li>
+        <li class="btn-box"><button class="rating-btn" type="button" value="4">4</button></li>
+        <li class="btn-box"><button class="rating-btn" type="button" value="5">5</button></li>
+      </ul>
+
+      <button class="btn" type="button" id="submit">submit</button>
+
+    </div>
+  </section>
+  <!-- Rating state end -->
+
+  <!-- Thank you state start -->
+  <section class="thank-u state" id="thank-u">
+    <div class="rating-content box">
+
+      <div class="image">
+        <img src="images/illustration-thank-you.svg" alt="">
+      </div>
+
+      <!-- Add rating here -->
+      <p class="rates">You selected <span id="rate"></span> out of 5</p>
+
+      <h5 class="title">Thank You!</h5>
+
+      <p class="details">We appreciate you taking the time to give a rating. If you ever need more support,
+      don't hesitate to get in touch!</p>
+
+    </div>
+  </section>
+  <!-- Thank you state end -->
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://twitter.com/sagor_alif8920" target="_blank">Alif</a>
+  </div>
+
+
+  <script>
+    let rating_tab = document.getElementById('rating-state')
+    let thanku_tab = document.getElementById('thank-u')
+    let rating_btn = document.querySelectorAll('.btn-box')
+    let submit_btn = document.getElementById('submit')
+    let rate = document.getElementById('rate')
+
+    // get the rating
+    rating_btn.forEach(e => {
+      var rate_btn = e.querySelector('.rating-btn')
+
+      rate_btn.addEventListener('click', () => {
+        rating_btn.forEach(e2 => {
+          if(e2 == e){
+            e2.firstElementChild.classList.add('clicked')
+            rate.innerText = `${e2.firstElementChild.value}`
+            submit_btn.style.pointerEvents = "all"
+          }
+          else{
+            e2.firstElementChild.classList.remove('clicked')
+          }
+        })
+      })
+    })
+
+    // submit the rating
+    submit_btn.onclick = () => {
+      rating_tab.classList.remove('open')
+      thanku_tab.classList.add('open')
+    }
+
+  </script>
+</body>
+</html>

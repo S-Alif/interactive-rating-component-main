@@ -1,0 +1,181 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+/* root variables */
+:root{
+    --orange: hsl(25, 97%, 53%);
+    --white: hsl(0, 0%, 100%);
+    --light-grey: hsl(217, 12%, 63%);
+    --medium-grey: hsl(216, 12%, 54%);
+    --dark-blue: hsl(213, 19%, 18%);
+    --very-dark-blue: hsl(216, 12%, 8%);
+
+    --font: "Overpass", sans-serif;
+    --bold: 700;
+    --regular: 400;
+    --size-of-p-text: 15px;
+}
+
+/*============== main design ================*/
+html{
+    font-size: 100%;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: var(--font);
+    background: var(--very-dark-blue);
+    position: relative;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.state{
+    width: 420px;
+    max-width: calc(100% - 20px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s ease;
+}
+
+.box{
+    width: 100%;
+    height: auto;
+    padding: 30px;
+    background: var(--dark-blue);
+    border-radius: 30px;
+}
+
+.open{
+    opacity: 1;
+    visibility: visible;
+    transition: 0.5s ease;
+}
+
+/*============== rating state ================*/
+/* star icon */
+.rating-content .star-icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: hsl(213, 19%, 23%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* title */
+.rating-content .title{
+    padding-top: 30px;
+    font-size: 30px;
+    color: var(--white);
+}
+
+/* details */
+.rating-content .details{
+    padding-top: 10px;
+    color: var(--light-grey);
+    line-height: 1.7;
+}
+
+/* rating */
+.rating-content .rating{
+    width: 100%;
+    padding: 30px 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+.rating li .rating-btn{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: hsl(213, 19%, 23%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    color: var(--medium-grey);
+    font-weight: var(--bold);
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+.rating li .rating-btn:hover{
+    background-color: var(--medium-grey);
+    color: var(--white);
+    transition: 0.5s ease;
+}
+.rating li .rating-btn.clicked{
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+/* submit-btn */
+.state .btn{
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 25px;
+    background-color: var(--orange);
+    color: var(--white);
+    cursor: pointer;
+    pointer-events: none;
+    user-select: none;
+    transition: 0.5s ease;
+}
+.state .btn:hover{
+    background-color: var(--white);
+    color: var(--orange);
+    transition: 0.5s ease;
+}
+
+/*============== thank you state ================*/
+.thank-u{
+    text-align: center;
+}
+.thank-u .image{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* rates */
+.thank-u .rates{
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: hsl(213, 19%, 23%);
+    color: var(--orange);
+    border-radius: 25px;
+    line-height: 1;
+}
+
+
+.attribution {
+    width: 100%;
+    color: hsl(0, 0%, 100%);
+    font-size: 11px;
+    text-align: center;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-100%);
+    font-size: var(--size-of-p-text);
+}
+
+.attribution a {
+    color: hsl(107, 100%, 57%);
+}
